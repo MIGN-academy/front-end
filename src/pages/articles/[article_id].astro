@@ -1,0 +1,23 @@
+---
+import 'dotenv/config';
+import 'axios';
+import Layout from '@/layouts/Layout.astro';
+
+const DOMAIN = import.meta.env.DOMAIN;
+
+const { article_id } = Astro.params;
+
+const response = await fetch(`${DOMAIN}/articles/${article_id}/`);
+const data = await response.json();
+---
+
+<Layout title="Articles">
+    <div>
+        <header>
+            <h1>{data.title}</h1>
+        </header>
+        <main>
+            {data.content}
+        </main>
+    </div>
+</Layout>

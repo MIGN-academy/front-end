@@ -1,0 +1,19 @@
+---
+
+import Layout from "../../../layouts/Layout.astro";
+import {Button} from "@/components/ui/button";
+---
+<Layout title="New Article">
+    <form>
+        <h1>New Article</h1>
+        <label for="title">Title
+            <input name="title" type="text" />
+        </label>
+        <br>
+        <label for="content">Content
+            <textarea name="content" />
+        </label>
+        <br>
+        <Button>Submit</Button>
+    </form>
+</Layout>

@@ -1,0 +1,22 @@
+---
+import 'dotenv/config';
+import 'axios';
+import Layout from '@/layouts/Layout.astro';
+
+const DOMAIN = import.meta.env.DOMAIN;
+
+const response = await fetch(`${DOMAIN}/articles/`);
+const data = await response.json();
+---
+
+<Layout title="Articles">
+    <main>
+        {data.map(article => (
+                <div>
+                    <a href=`/articles/${article.article_id}`>
+                        {article.title}
+                    </a>
+                </div>
+        ))}
+    </main>
+</Layout>
