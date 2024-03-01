@@ -2,35 +2,18 @@
 
 import * as React from "react"
 
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import {ModeToggle} from "@/components/ModeToggle.tsx";
-
 export function NavMenu() {
-  return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <a href="/articles">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Articles
-            </NavigationMenuLink>
-          </a>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <a href="/articles/new">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              New Article
-            </NavigationMenuLink>
-          </a>
-        </NavigationMenuItem>
-        <ModeToggle/>
-      </NavigationMenuList>
-    </NavigationMenu>
-  )
+    return (
+        <nav className="border-b-2 border-zinc-500 flex space-x-12 px-10 pb-3">
+            <a href="/">
+                Home
+            </a>
+            <a href="/articles">
+                Articles
+            </a>
+            <a href="/articles/new">
+                New Article
+            </a>
+        </nav>
+    )
 }

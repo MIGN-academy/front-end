@@ -16,8 +16,14 @@ const data = await response.json();
         <header>
             <h1>{data.title}</h1>
         </header>
-        <main>
+        <div class="content">
             {data.content}
-        </main>
+        </div>
     </div>
 </Layout>
+
+<style>
+    .content {
+        margin-top: 20px;
+    }
+</style>

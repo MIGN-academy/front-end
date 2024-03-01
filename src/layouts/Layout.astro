@@ -43,10 +43,22 @@ import {NavMenu} from "../components/NavigationMenu";
 	<body>
 		<header>
 			<NavMenu/>
-			<!--<a href="/articles"><Button>Articles</Button></a>-->
-			<!--<a href="/articles/new"><Button>New Article</Button></a>-->
-			<!--<ModeToggle client:load />-->
 		</header>
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
+
+<style is:global>
+	main {
+		margin-top: 3.5rem;
+		margin-left: 3rem;
+	}
+	h1 {
+		font-size: 28px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+</style>
