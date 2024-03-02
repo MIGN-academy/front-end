@@ -11,7 +11,7 @@ export function NavMenu() {
             <a href="/articles">
                 Articles
             </a>
-            <a href="/articles/new">
+            <a href="/newarticle">
                 New Article
             </a>
         </nav>

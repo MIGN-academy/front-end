@@ -1,3 +1,9 @@
+import bold from '../../../public/assets/bold.svg'
+import italic from '../../../public/assets/italic.svg'
+import underline from '../../../public/assets/underline.svg'
+import list_bullet from '../../../public/assets/list_bullet.svg'
+import preformatted_code from '../../../public/assets/preformatted_code.svg'
+
 type IconProps = React.HTMLAttributes<SVGElement>
 
 // @ts-ignore
@@ -149,45 +155,18 @@ export const Icons = {
         </svg>
     ),
     bold: (props: IconProps) => (
-        <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
-             image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-             viewBox="0 0 380 511.38" {...props}>
-            <path fill-rule="nonzero" fill="#e4e4e7"
-                  d="M0 511.38V0h179.09C241.18 0 288.3 11.87 320.3 35.72c32.13 23.73 48.19 58.62 48.19 104.53 0 25.05-6.47 47.23-19.42 66.29-12.83 19.06-30.69 33.09-53.7 41.95 26.25 6.6 46.87 19.79 61.97 39.69 15.11 19.89 22.66 44.22 22.66 73 0 49.14-15.7 86.3-46.99 111.6-31.41 25.29-76.12 38.12-134.14 38.6H0zm105.37-222.25v137.38h90.26c24.82 0 44.24-5.88 58.14-17.63 13.91-11.74 20.86-28.05 20.86-48.78 0-46.63-24.22-70.25-72.64-70.97h-96.62zm0-74.8h78.04c53.1-.95 79.71-22.05 79.71-63.53 0-23.13-6.71-39.8-20.26-49.99-13.42-10.18-34.64-15.22-63.77-15.22h-73.72v128.74z"/>
-        </svg>
+        <img src={bold} alt='Bold' width='50' />
     ),
     italic: (props: IconProps) => (
-        <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
-             image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-             viewBox="0 0 399 512.06" {...props}>
-            <path fill-rule="nonzero" fill="#e4e4e7"
-                  d="M378.96 74.78 399 0H138.4l-20.04 74.78h91.88l-97.14 362.5H20.04L0 512.06h260.6l20.04-74.78h-90.12l97.13-362.5z"/>
-        </svg>
+        <img src={italic} alt='Italic' />
     ),
     underline: (props: IconProps) => (
-        <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
-             image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-             viewBox="0 0 329 512.32" {...props}>
-            <path fill-rule="nonzero" fill="#e4e4e7"
-                  d="M318.66 0v232.36c0 44.02-13.76 78.85-41.3 104.47-27.5 25.58-65.15 38.38-112.87 38.38-46.95 0-84.27-12.49-111.92-37.34-27.59-24.81-42.23-59.02-42.23-102.49V0h82.87v232.74c0 26.38 6.33 45.55 18.96 57.61 12.61 12.06 30.08 18.1 52.32 18.1 46.58 0 71.01-24.51 71.01-73.45V0h83.16zM329 446.83v65.49H0v-65.49h329z"/>
-        </svg>
+        <img src={underline} alt='Underline' />
     ),
     listbullet: (props: IconProps) => (
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-             x="0px" y="0px" viewBox="0 0 122.88 112.5" style={{"enable-background": "new 0 0 122.88 112.5"}} fill="#e4e4e7"
-             xml:space="preserve" {...props}>
-                {/*<style type="text/css">*/}
-                {/*    .st0 {*/}
-                {/*        fill-rule: evenodd;*/}
-                {/*        clip-rule: evenodd;*/}
-                {/*    }*/}
-                {/*</style>*/}
-            <g><path className="st0" d="M12.56,87.39c6.93,0,12.56,5.62,12.56,12.56c0,6.93-5.62,12.56-12.56,12.56C5.62,112.5,0,106.88,0,99.95 C0,93.01,5.62,87.39,12.56,87.39L12.56,87.39z M35.07,88.24h86.38c0.79,0,1.43,0.64,1.43,1.43v19.93c0,0.79-0.64,1.43-1.43,1.43 H35.07c-0.79,0-1.43-0.64-1.43-1.43V89.67C33.64,88.88,34.29,88.24,35.07,88.24L35.07,88.24z M35.07,44.7h86.38 c0.79,0,1.43,0.64,1.43,1.43v19.93c0,0.79-0.64,1.43-1.43,1.43H35.07c-0.79,0-1.43-0.64-1.43-1.43V46.13 C33.64,45.34,34.29,44.7,35.07,44.7L35.07,44.7z M35.07,1.16h86.38c0.79,0,1.43,0.64,1.43,1.43v19.93c0,0.79-0.64,1.43-1.43,1.43 H35.07c-0.79,0-1.43-0.64-1.43-1.43V2.59C33.64,1.8,34.29,1.16,35.07,1.16L35.07,1.16z M12.56,43.69c6.93,0,12.56,5.62,12.56,12.56 c0,6.93-5.62,12.56-12.56,12.56C5.62,68.81,0,63.19,0,56.25C0,49.32,5.62,43.69,12.56,43.69L12.56,43.69z M12.56,0 c6.93,0,12.56,5.62,12.56,12.56c0,6.93-5.62,12.56-12.56,12.56C5.62,25.11,0,19.49,0,12.56C0,5.62,5.62,0,12.56,0L12.56,0z"/></g></svg>
+        <img src={list_bullet} alt='List bullet' />
     ),
     preformattedcode: (props: IconProps) => (
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 101.57" style={{"enable-background": "new 0 0 122.88 101.57"}} fill="#e4e4e7" xml:space="preserve" {...props}>
-         <g><path d="M44.97,12.84h-17.2L0,49.37L27.77,85.9h17.2L17.2,49.37L44.97,12.84L44.97,12.84z M77.91,12.84h17.2l27.77,36.53 L95.11,85.9h-17.2l27.77-36.53L77.91,12.84L77.91,12.84z M70.17,0.04l5.96,1.39c0.94,0.22,1.52,1.16,1.31,2.1l-22.5,96.69 c-0.22,0.93-1.16,1.52-2.1,1.31l-5.95-1.39c-0.94-0.22-1.52-1.16-1.31-2.1l22.5-96.69C68.3,0.42,69.24-0.17,70.17,0.04L70.17,0.04 L70.17,0.04z"/>
-         </g>
-        </svg>
+        <img src={preformatted_code} alt='Preformatted code' />
     )
 }
