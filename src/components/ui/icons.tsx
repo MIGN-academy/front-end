@@ -1,8 +1,14 @@
-import bold from '../../../public/assets/bold.svg'
-import italic from '../../../public/assets/italic.svg'
-import underline from '../../../public/assets/underline.svg'
-import list_bullet from '../../../public/assets/list_bullet.svg'
-import preformatted_code from '../../../public/assets/preformatted_code.svg'
+// @ts-ignore
+
+import bold from '@/assets/bold.svg?react'
+import italic from '@/assets/italic.svg?react'
+import underline from '@/assets/underline.svg?react'
+import list_bullet from '@/assets/list_bullet.svg?react'
+import preformatted_code from '@/assets/preformatted_code.svg?react'
+import math from '@/assets/math.svg?react'
+
+import {Image} from 'astro:assets'
+import {Fragment} from "react";
 
 type IconProps = React.HTMLAttributes<SVGElement>
 
@@ -155,18 +161,21 @@ export const Icons = {
         </svg>
     ),
     bold: (props: IconProps) => (
-        <img src={bold} alt='Bold' width='50' />
+        <img src={bold} width={10} height={10} />
     ),
     italic: (props: IconProps) => (
-        <img src={italic} alt='Italic' />
+        <img src={italic} width={10} height={10} />
     ),
     underline: (props: IconProps) => (
-        <img src={underline} alt='Underline' />
+        <img src={underline} width={10} height={10} />
     ),
     listbullet: (props: IconProps) => (
-        <img src={list_bullet} alt='List bullet' />
+        <img src={list_bullet} width={15} height={15} />
     ),
     preformattedcode: (props: IconProps) => (
-        <img src={preformatted_code} alt='Preformatted code' />
+        <img src={preformatted_code} width={15} height={15} />
+    ),
+    math: (props: IconProps) => (
+        <img src={math} width={15} height={15} />
     )
 }
