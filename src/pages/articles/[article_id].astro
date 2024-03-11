@@ -2,6 +2,7 @@
 import 'dotenv/config';
 import 'axios';
 import Layout from '@/layouts/Layout.astro';
+import {TiptapDisplay} from "../../components/TiptapDisplay";
 
 const DOMAIN = import.meta.env.DOMAIN;
 
@@ -16,9 +17,7 @@ const data = await response.json();
         <header>
             <h1>{data.title}</h1>
         </header>
-        <div class="content">
-            {data.content}
-        </div>
+        <TiptapDisplay client:only="react" content={data.content} />
     </div>
 </Layout>
 

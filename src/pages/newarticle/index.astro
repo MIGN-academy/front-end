@@ -1,22 +1,45 @@
 ---
+import axios from 'axios'
+import Layout from '../../layouts/Layout.astro'
 
-import Layout from "../../layouts/Layout.astro";
+import {Button} from "../../components/ui/button"
+import {Input} from "../../components/ui/input"
+import Tiptap from "../../components/Tiptap"
+import {Bold} from "lucide-react";
+import {atom} from "nanostores";
 
-import {RichTextarea} from "../../components/ui/richtextarea";
-import {Input} from "../../components/ui/input";
-import {Button} from "../../components/ui/button";
+import {NewArticleForm} from '@/components/react_pages/NewArticleForm'
+
+if (Astro.request.method === "POST") {
+    try {
+        const data = await Astro.request.formData()
+        const title = data.get("title")
+        const content = data.get("content")
+
+        console.log(`title: ${title}`)
+        console.log(`content: ${content}`)
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message)
+        }
+    }
+}
+
+let contentValue = "";
 ---
 <Layout title="New Article">
-    <form>
-        <h1>New Article</h1>
-        <label for="title">Title
-            <Input name="title" type="text" />
-        </label>
-        <br>
-        <label for="content">Content
-            <RichTextarea name="content" />
-        </label>
-        <br>
-        <Button>Submit</Button>
-    </form>
+    <NewArticleForm client:load client:only="react" />
+    <!--<main>-->
+    <!--    <form method="POST">-->
+    <!--        <label>-->
+    <!--            Title-->
+    <!--            <Input name="title" placeholder="Article title"/>-->
+    <!--        </label>-->
+    <!--        <label>-->
+    <!--            Content-->
+    <!--        </label>-->
+    <!--        <Tiptap client:only="react" name="content" />-->
+    <!--        <Button variant="outline">Post</Button>-->
+    <!--    </form>-->
+    <!--</main>-->
 </Layout>
