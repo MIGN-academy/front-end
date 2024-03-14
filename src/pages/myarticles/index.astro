@@ -1,0 +1,12 @@
+---
+import 'dotenv/config';
+import 'axios';
+import Layout from '@/layouts/Layout.astro';
+
+import {MyArticles} from '@/components/react_pages/MyArticles'
+---
+
+<Layout title="Articles">
+    <h1>My Articles</h1>
+    <MyArticles client:only="react" />
+</Layout>

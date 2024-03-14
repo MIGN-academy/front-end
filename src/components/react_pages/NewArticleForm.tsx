@@ -1,5 +1,5 @@
 import {
-    Form, FormControl, FormField, FormItem, FormLabel, FormMessage
+    Form, FormControl, FormField, FormItem, FormLabel
 } from '@/components/ui/form'
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
@@ -7,16 +7,17 @@ import * as z from 'zod'
 import {Input} from '@/components/ui/input.tsx'
 import Tiptap from "@/components/Tiptap.tsx";
 import {useStore} from "@nanostores/react";
-import {client} from '@/lib/stores'
+import {$client} from '@/lib/stores'
 import {useState} from 'react'
 
 import axios from 'axios'
+import {Button} from "@/components/ui/button.tsx";
 
 export const NewArticleForm = () => {
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.withCredentials = false;
 
-    const $client = useStore(client)
+    const client = useStore($client)
 
     const formSchema = z.object({
         title: z.string().max(100, {message: 'Title is too long'}),
@@ -34,7 +35,7 @@ export const NewArticleForm = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(`values: ${JSON.stringify(values)}`)
-        await $client.post(`/articles/`, {
+        await client.post(`/articles/`, {
             title: values.title,
             content: values.content
         }, {
@@ -64,7 +65,7 @@ export const NewArticleForm = () => {
                             </FormControl>
                         </FormItem>
                     )}/>
-                    <button type='submit'>Post</button>
+                    <Button className='mt-4' variant='outline' type='submit'>Post</Button>
                 </form>
             </Form>
         </main>

@@ -9,6 +9,7 @@ const { title } = Astro.props;
 import '@/styles/globals.css';
 import {ModeToggle} from '@/components/ModeToggle';
 import {NavMenu} from "../components/NavigationMenu";
+import {SidebarMenu} from "@/components/SidebarMenu";
 ---
 
 <script is:inline>
@@ -40,20 +41,56 @@ import {NavMenu} from "../components/NavigationMenu";
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<header>
+	<body class="flex flex-col h-80">
+		<header class="flex-stretch">
 			<NavMenu client:load />
 		</header>
-		<main>
-			<slot />
-		</main>
+		{Astro.url.pathname === '/' ?
+			<div class="flex-grow">
+				<div class="flex flex-row flex-grow">
+					<aside class="flex-3 border-r-2 border-zinc-500">
+						<SidebarMenu client:only="react" />
+					</aside>
+					<main class="flex-9">
+						<slot />
+					</main>
+				</div>
+			</div>
+			:
+			<div>
+				<main>
+					<slot />
+				</main>
+			</div>
+		}
 	</body>
 </html>
 
 <style is:global>
 	main {
 		margin-top: 3.5rem;
-		margin-left: 3rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	@media only screen and (max-width: 640px) {
+		main {
+			min-width: 90%;
+		}
+	}
+	@media (min-width: 768px) {
+		main {
+			width: 80%;
+		}
+	}
+	@media (min-width: 1024px) {
+		main {
+			width: 70%;
+		}
+	}
+	@media (min-width: 1280px) {
+		main {
+			max-width: 800px;
+		}
 	}
 	h1 {
 		font-size: 28px;

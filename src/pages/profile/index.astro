@@ -1,0 +1,12 @@
+---
+import 'dotenv/config';
+import 'axios';
+import Layout from '@/layouts/Layout.astro';
+
+import {MyProfile} from '@/components/react_pages/MyProfile'
+---
+
+<Layout title="Articles">
+    <h1>My Profile</h1>
+    <MyProfile client:only="react" />
+</Layout>

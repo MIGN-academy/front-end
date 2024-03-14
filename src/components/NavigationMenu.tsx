@@ -3,16 +3,14 @@ import {useEffect, useState} from "react";
 
 import axios from 'axios'
 import {useStore} from "@nanostores/react";
-import {client} from "@/lib/stores.ts";
+import {$client} from "@/lib/stores.ts";
 
 export function NavMenu() {
-    axios.defaults.xsrfCookieName = 'csrftoken';
-    axios.defaults.withCredentials = false;
-    const $client = useStore(client)
+    const client = useStore($client)
     const [currentUser, setCurrentUser] = useState(false)
 
     useEffect(() => {
-        $client.get('/users/whoami/', {
+        client.get('/users/whoami/', {
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
             }
@@ -24,7 +22,7 @@ export function NavMenu() {
     }, [])
 
     const logoutUser = () => {
-        $client.get('/users/logout/', {
+        client.get('/users/logout/', {
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
             }
@@ -43,14 +41,16 @@ export function NavMenu() {
             <a href="/articles">
                 Articles
             </a>
-            <a href="/newarticle">
-                New Article
-            </a>
-            <a href="/quizzes">
-                Quizzes
-            </a>
-            {currentUser ? <button onClick={logoutUser}>Logout</button>
-            : <a href="/users/login">Login</a>}
+            {currentUser ? <>
+                    <a href="/newarticle">
+                        New Article
+                    </a>
+                    <a href="/quizzes">
+                        Quizzes
+                    </a>
+                    <button onClick={logoutUser}>Logout</button>
+                </>
+                : <a href="/users/login">Login</a>}
         </nav>
     )
 }

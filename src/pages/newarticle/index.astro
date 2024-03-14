@@ -1,45 +1,8 @@
 ---
-import axios from 'axios'
 import Layout from '../../layouts/Layout.astro'
 
-import {Button} from "../../components/ui/button"
-import {Input} from "../../components/ui/input"
-import Tiptap from "../../components/Tiptap"
-import {Bold} from "lucide-react";
-import {atom} from "nanostores";
-
-import {NewArticleForm} from '@/components/react_pages/NewArticleForm'
-
-if (Astro.request.method === "POST") {
-    try {
-        const data = await Astro.request.formData()
-        const title = data.get("title")
-        const content = data.get("content")
-
-        console.log(`title: ${title}`)
-        console.log(`content: ${content}`)
-    } catch (error) {
-        if (error instanceof Error) {
-            console.error(error.message)
-        }
-    }
-}
-
-let contentValue = "";
+import NewArticleForm from '@/components/vue_pages/NewArticleForm.vue'
 ---
 <Layout title="New Article">
-    <NewArticleForm client:load client:only="react" />
-    <!--<main>-->
-    <!--    <form method="POST">-->
-    <!--        <label>-->
-    <!--            Title-->
-    <!--            <Input name="title" placeholder="Article title"/>-->
-    <!--        </label>-->
-    <!--        <label>-->
-    <!--            Content-->
-    <!--        </label>-->
-    <!--        <Tiptap client:only="react" name="content" />-->
-    <!--        <Button variant="outline">Post</Button>-->
-    <!--    </form>-->
-    <!--</main>-->
+    <NewArticleForm client:load client:only="vue" />
 </Layout>

@@ -3,7 +3,7 @@ import {Input} from "@/components/ui/input.tsx";
 import React from "react";
 import axios from "axios";
 import {useStore} from "@nanostores/react";
-import {client} from "@/lib/stores.ts";
+import {$client} from "@/lib/stores.ts";
 import * as z from "zod";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -12,7 +12,7 @@ import {Button} from "@/components/ui/button.tsx";
 export const LoginUserForm = () => {
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.withCredentials = false;
-    const $client = useStore(client)
+    const client = useStore($client)
 
     const formSchema = z.object({
         email: z.string(),
@@ -29,12 +29,12 @@ export const LoginUserForm = () => {
     })
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        await $client.post(`/users/login/`, {
+        await client.post(`/users/login/`, {
             email: values.email,
             password: values.password
-        }).then(res => {
+        }).then((res: any) => {
             localStorage.setItem('token', res.data['token'])
-        }).catch(err => {
+        }).catch((err: any) => {
             console.log(JSON.stringify(err))
         })
     }

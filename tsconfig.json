@@ -1,9 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "react",
-    "baseUrl": ".",
+    "baseUrl": "C:/Users/alex.MICHARSKI/PycharmProjects/academy-front-end",
     "paths": {
       "@/*": [
         "./src/*"
