@@ -10,7 +10,7 @@
     >
       <form @submit.stop.prevent="handleSubmit">
         <b-form-group id="src-input" label="Src" label-for="src-input">
-          <b-form-input id="src" @input.native="debounceLoadImage($event.target.value)" v-bind:value="form.src" :autofocus="true"></b-form-input>
+          <b-form-input id="src" @input.emits="debounceLoadImage($event.target.value)" v-bind:value="form.src" :autofocus="true"></b-form-input>
         </b-form-group>
         <b-form-row class="d-flex align-items-center my-2">
           <b-col md="2">
@@ -83,8 +83,8 @@
   import axios from 'axios'
   import SrcsetForm from '@/components/text_editor/windows/SrcsetForm.vue'
   import Srcset from '@/components/text_editor/windows/Srcset.vue'
-  import { debounce } from 'lodash'
-  import vSelect from 'vue3-select'
+  import { debounce } from 'radash'
+  import vSelect from 'vue3-select-component'
   import { v4 as uuidv4 } from 'uuid';
 
   export default {

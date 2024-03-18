@@ -87,12 +87,12 @@
 </template>
 
 <script>
-  import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
-  import vSelect from 'vue3-select'
+  import VueSimpleTypeahead from 'vue3-simple-typeahead';
+  import vSelect from 'vue3-select-component'
 
   export default {
     components: {
-      VueTypeaheadBootstrap,
+      VueSimpleTypeahead,
       vSelect
     },
     props: {

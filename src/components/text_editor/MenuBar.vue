@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { isEmpty } from "lodash";
+import Vue from "@astrojs/vue";
+import { isEmpty } from "radash";
 import MenuItem from "./MenuItem.vue";
 import LinkWindow from "@/components/text_editor/windows/LinkWindow.vue";
 import ImageWindow from "@/components/text_editor/windows/ImageWindow.vue";

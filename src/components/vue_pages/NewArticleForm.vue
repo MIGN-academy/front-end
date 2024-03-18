@@ -57,14 +57,14 @@ const onSubmit = handleSubmit(values => {
           </FormControl>
         </FormItem>
       </FormField>
-<!--      <FormField name="content" v-slot="{componentField}">-->
-<!--        <FormItem>-->
-<!--          <FormLabel>Content</FormLabel>-->
-<!--          <FormControl>-->
-<!--            <Editor />-->
-<!--          </FormControl>-->
-<!--        </FormItem>-->
-<!--      </FormField>-->
+      <FormField name="content" v-slot="{componentField}">
+        <FormItem>
+          <FormLabel>Content</FormLabel>
+          <FormControl>
+            <Editor />
+          </FormControl>
+        </FormItem>
+      </FormField>
       <Button type="submit">
         Post
       </Button>

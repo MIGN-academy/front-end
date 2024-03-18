@@ -1,17 +1,16 @@
 <template>
-<!--  <div v-bind="setId" class="editor" v-if="editor">-->
-<!--    <menu-bar class="editor__header" :editor="editor"></menu-bar>-->
-<!--    <editor-content class="editor__content" :editor="editor" />-->
-<!--    <div class="editor__footer">-->
-<!--      <small>{{ wordsCount }} words</small>-->
-<!--    </div>-->
-<!--  </div>-->
-  hello
+  <div v-bind="setId" class="editor" v-if="editor">
+    <menu-bar class="editor__header" :editor="editor"></menu-bar>
+    <editor-content class="editor__content" :editor="editor" />
+    <div class="editor__footer">
+      <small>{{ wordsCount }} words</small>
+    </div>
+  </div>
 </template>
 
 <script>
 import { Editor, EditorContent } from "@tiptap/vue-3";
-import { debounce } from "lodash";
+import { debounce } from "radash";
 import MenuBar from "@/components/text_editor/MenuBar.vue";
 
 // Starterkit extensions
@@ -178,11 +177,20 @@ export default {
       this.editor.commands.setContent(this.value, false);
     },
   },
+  emits: ['input'],
   created() {
     window.addEventListener("scroll", () => {
       this.scrollY = window.scrollY;
     });
     window.addEventListener("keydown", this.toggleFullScren);
+
+    // this.debounceInput = () => {
+    //   this.$emit("input", this.editor.getHTML());
+    // }
+    //
+    // this.debounceGetWordsCount = () => {
+    //   this.wordsCount = this.getWordsCount();
+    // }
 
     this.debounceInput = debounce(() => {
       this.$emit("input", this.editor.getHTML());

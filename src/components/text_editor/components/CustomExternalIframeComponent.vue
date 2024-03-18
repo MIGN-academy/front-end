@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import Vue from 'vue'
+  import Vue from '@astrojs/vue'
   import { NodeViewWrapper, NodeViewContent, nodeViewProps } from '@tiptap/vue-3'
 
   export default {
