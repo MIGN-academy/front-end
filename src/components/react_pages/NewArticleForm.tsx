@@ -5,13 +5,13 @@ import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import {Input} from '@/components/ui/input.tsx'
-import Tiptap from "@/components/Tiptap.tsx";
 import {useStore} from "@nanostores/react";
 import {$client} from '@/lib/stores'
 import {useState} from 'react'
 
 import axios from 'axios'
 import {Button} from "@/components/ui/button.tsx";
+import {RichTextarea} from "@/components/ui/richtextarea.tsx";
 
 export const NewArticleForm = () => {
     axios.defaults.xsrfCookieName = 'csrftoken';
@@ -61,7 +61,7 @@ export const NewArticleForm = () => {
                         <FormItem>
                             <FormLabel>Content</FormLabel>
                             <FormControl>
-                                <Tiptap description={field.value} onChange={field.onChange}/>
+                                <RichTextarea></RichTextarea>
                             </FormControl>
                         </FormItem>
                     )}/>

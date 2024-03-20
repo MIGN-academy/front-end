@@ -1,9 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 
-import NewArticleFormSimple from '@/components/vue_pages/NewArticleFormSimple.vue'
-import NewArticleForm from '@/components/vue_pages/NewArticleForm.vue'
+import {NewArticleForm} from '@/components/react_pages/NewArticleForm.tsx'
 ---
 <Layout title="New Article">
-    <NewArticleForm client:only="vue" />
+    <NewArticleForm client:only="react" />
 </Layout>
