@@ -19,7 +19,9 @@ import {SidebarMenu} from "@/components/SidebarMenu";
 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	};
 	const isDark = getThemePreference() === 'dark';
+	console.log(`isDark: ${isDark}`);
 	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+	console.log(document.documentElement.classList)
 
 	if (typeof localStorage !== 'undefined') {
 		const observer = new MutationObserver(() => {
