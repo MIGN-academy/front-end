@@ -23,6 +23,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-toolbar": "^1.0.4",
+    "@rollup/wasm-node": "^4.13.0",
     "@tiptap/extension-blockquote": "^2.2.4",
     "@tiptap/extension-bold": "^2.2.4",
     "@tiptap/extension-bullet-list": "^2.2.4",
@@ -48,6 +49,7 @@
     "@tiptap/extension-table-row": "^2.2.4",
     "@tiptap/extension-text": "^2.2.4",
     "@tiptap/extension-text-align": "^2.2.4",
+    "@tiptap/extension-underline": "^2.2.4",
     "@tiptap/pm": "^2.2.4",
     "@tiptap/react": "^2.2.4",
     "@tiptap/starter-kit": "^2.2.4",
@@ -57,6 +59,7 @@
     "@vee-validate/zod": "^4.12.6",
     "@vueuse/core": "^10.9.0",
     "astro": "^4.4.6",
+    "astro-icon": "^1.1.0",
     "axios": "^1.6.7",
     "better-react-mathjax": "^2.0.3",
     "bootstrap-vue": "^2.23.1",
@@ -73,6 +76,7 @@
     "remixicon": "^4.2.0",
     "shadcn-vue": "^0.10.1",
     "slugify": "^1.6.6",
+    "splendid-ui": "^0.11.0-alpha.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
@@ -88,6 +92,10 @@
   },
   "devDependencies": {
     "sass": "^1.71.1",
-    "vite-plugin-node-polyfills": "^0.21.0"
+    "vite-plugin-node-polyfills": "^0.21.0",
+    "vite-svg-loader": "^5.1.0"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node"
   }
 }
