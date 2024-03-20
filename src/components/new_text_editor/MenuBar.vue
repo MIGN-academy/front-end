@@ -1,28 +1,17 @@
 <template>
-  <div>
+  <div class="text-xl">
     <template v-for="(item, index) in items">
-      <div
+      <span
           class="divider"
           v-if="item.type === 'divider'"
           :key="`divider${index}`"
-      />
-      <menu-item :editor="editor" v-else :key="index" v-bind="item" />
+      >
+        |
+      </span>
+      <menu-item class="p-1" :editor="editor" v-else :key="index" v-bind="item"/>
     </template>
   </div>
 </template>
-<!--<template>-->
-<!--  <button @click="makeBold">Click me for bold</button>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--  import { ref } from 'vue'-->
-
-<!--  const bold = ref()-->
-
-<!--  const makeBold = () => {-->
-<!--    console.log('bold')-->
-<!--  }-->
-<!--</script>-->
 
 <script>
 import MenuItem from "@/components/new_text_editor/MenuItem.vue";
@@ -91,29 +80,6 @@ export default {
           type: "divider",
         },
         {
-          icon: "link",
-          title: "Link",
-          action: () => this.openLinkWindow(),
-        },
-        {
-          icon: "image-line",
-          title: "Image",
-          action: () => this.openImageWindow(),
-        },
-        {
-          icon: "movie-line",
-          title: "External Video",
-          action: () => this.openExternalVideoWindow(),
-        },
-        {
-          icon: "window-line",
-          title: "External Iframe",
-          action: () => this.openExternalIframeWindow(),
-        },
-        {
-          type: "divider",
-        },
-        {
           icon: "h-1",
           title: "Heading 1",
           action: () =>
@@ -156,7 +122,30 @@ export default {
           icon: "code-box-line",
           title: "Code Block",
           action: () => this.editor.chain().focus().toggleCodeBlock().run(),
-        }
+        },
+        {
+          type: "divider",
+        },
+        {
+          icon: "link",
+          title: "Link",
+          action: () => this.openLinkWindow(),
+        },
+        {
+          icon: "image-line",
+          title: "Image",
+          action: () => this.openImageWindow(),
+        },
+        {
+          icon: "movie-line",
+          title: "External Video",
+          action: () => this.openExternalVideoWindow(),
+        },
+        {
+          icon: "window-line",
+          title: "External Iframe",
+          action: () => this.openExternalIframeWindow(),
+        },
       ]
     }
   }

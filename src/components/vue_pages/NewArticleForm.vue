@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import {Form, FormControl, FormField, FormItem, FormLabel} from '@/components/ui/vue/form'
+import {Button} from '@/components/ui/vue/button'
 import {Input} from '@/components/ui/vue/input'
 import {useForm} from 'vee-validate'
 import axios from 'axios'
@@ -58,6 +59,7 @@ const onSubmit = handleSubmit(values => {
           </FormControl>
         </FormItem>
       </FormField>
+      <div class="mt-10" />
       <FormField name="content" v-slot="{componentField}">
         <FormItem>
           <FormLabel>Content</FormLabel>
@@ -66,7 +68,7 @@ const onSubmit = handleSubmit(values => {
           </FormControl>
         </FormItem>
       </FormField>
-      <Button type="submit">
+      <Button variant="outline" type="submit">
         Post
       </Button>
     </Form>

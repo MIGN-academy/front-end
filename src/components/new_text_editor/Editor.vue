@@ -1,6 +1,6 @@
 <template>
   <menu-bar :editor="editor"></menu-bar>
-  <editor-content :editor="editor" />
+  <editor-content class="border rounded-md" :editor="editor" />
 </template>
 
 <script setup>
@@ -11,10 +11,15 @@ import Link from "@tiptap/extension-link";
 import MenuBar from "@/components/new_text_editor/MenuBar.vue";
 
 const editor = useEditor({
-  content: '<p>I’m running Tiptap with Vue.js. 🎉</p>',
+  content: '',
   extensions: [
     StarterKit,
   ],
+  editorProps: {
+    attributes: {
+      class: 'prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none'
+    }
+  }
 })
 
 const CustomTableHeader = TableHeader.extend({

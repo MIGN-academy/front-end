@@ -1,36 +1,20 @@
 <template>
-  <!--button
+  <button
     class="menu-item"
     :class="{ 'is-active': isActive ? isActive(): null, 'is-disabled': can ? !can(): false }"
-    @click="action"
+    @click="(e) => {
+      e.preventDefault();
+      action();
+    }"
     :title="title"
     :disabled="can ? !can() : false"
   >
-    <svg class="remix">
-      <use :xlink:href="`${remixiconUrl}#ri-${icon}`" />
-    </svg>
-  </button>-->
-  <button
-    class="menu-item"
-    @click="action"
-    :title="title"
-  >
-    <Icon name="ri:attachment-fill" />
-<!--    <svg>-->
-<!--      <use href="@/assets/bold.svg" />-->
-<!--      <use xlink:href="remixicon/icons/Editor/bold.svg" />-->
-<!--    </svg>-->
-<!--    <svg class="remix">-->
-<!--      <use :xlink:href="`remixicon/fonts/remixicon.symbol.svg#ri-bold`" />-->
-<!--      <use :xlink:href="`${remixiconUrl}#ri-${icon}`" />-->
-<!--    </svg>-->
+    <i :style="{color: can ? 'inherit' : '#888'}" :class="`ri-${icon} ri-fw`"></i>
   </button>
 </template>
 
 <script>
-import { Icon } from 'astro-icon/components'
-
-import BoldIcon from '@/assets/bold.svg'
+import 'remixicon/fonts/remixicon.css';
 export default {
   props: {
     icon: {
@@ -45,20 +29,13 @@ export default {
       type: Function,
       required: true,
     },
-    /*isActive: {
+    isActive: {
       type: Function,
-      default: null,
+      default: () => false,
     },
     can: {
       type: Function,
-      default: null
-    }*/
-  },
-
-  data() {
-    return {
-      Icon,
-      BoldIcon,
+      default: () => true
     }
   },
 }

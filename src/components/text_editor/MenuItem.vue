@@ -22,8 +22,6 @@
 </template>
 
 <script>
-// import remixiconUrl from 'remixicon/fonts/remixicon.symbol.svg'
-
 export default {
   props: {
     icon: {
