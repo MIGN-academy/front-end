@@ -1,15 +1,14 @@
 <template>
   <button
     class="menu-item"
-    :class="{ 'is-active': isActive ? isActive(): null, 'is-disabled': can ? !can(): false }"
+    :class="{ 'is-active bg-zinc-800 rounded-sm': isActive(editor) }"
     @click="(e) => {
       e.preventDefault();
       action();
     }"
     :title="title"
-    :disabled="can ? !can() : false"
   >
-    <i :style="{color: can ? 'inherit' : '#888'}" :class="`ri-${icon} ri-fw`"></i>
+    <i :class="`ri-${icon} ri-fw`"></i>
   </button>
 </template>
 
@@ -29,15 +28,15 @@ export default {
       type: Function,
       required: true,
     },
-    isActive: {
-      type: Function,
-      default: () => false,
-    },
-    can: {
-      type: Function,
-      default: () => true
+    editor: {
+      type: Object,
+      required: true,
     }
   },
+  methods: {
+    async isActive(editor){
+      return await editor.isActive('bold')
+    }
+  }
 }
-
 </script>

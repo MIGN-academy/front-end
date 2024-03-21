@@ -9,18 +9,19 @@ import StarterKit from '@tiptap/starter-kit'
 import TableHeader from "@tiptap/extension-table-header";
 import Link from "@tiptap/extension-link";
 import MenuBar from "@/components/new_text_editor/MenuBar.vue";
+import BulletList from "@tiptap/extension-bullet-list";
+import Bold from "@tiptap/extension-bold";
 
-const editor = useEditor({
-  content: '',
-  extensions: [
-    StarterKit,
-  ],
-  editorProps: {
-    attributes: {
-      class: 'prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none'
-    }
-  }
-})
+const CustomBulletList = BulletList.extend({
+  addCommands() {
+    return {
+      ...this.parent?.(),
+      toggleBulletClass: (className) => ({ commands }) => {
+        return commands.updateAttributes("bulletList", { class: className });
+      },
+    };
+  },
+});
 
 const CustomTableHeader = TableHeader.extend({
   addAttributes() {
@@ -55,4 +56,20 @@ const CustomLink = Link.extend({
     };
   },
 });
+
+const editor = useEditor({
+  content: '',
+  extensions: [
+    StarterKit,
+    CustomBulletList,
+    CustomTableHeader,
+    CustomLink,
+    Bold,
+  ],
+  editorProps: {
+    attributes: {
+      class: 'prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none'
+    }
+  }
+})
 </script>

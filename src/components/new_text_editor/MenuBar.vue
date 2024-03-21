@@ -148,6 +148,6 @@ export default {
         },
       ]
     }
-  }
+  },
 }
 </script>
