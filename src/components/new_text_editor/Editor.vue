@@ -1,6 +1,6 @@
 <template>
   <menu-bar :editor="editor"></menu-bar>
-  <editor-content class="border rounded-md" :editor="editor" />
+  <editor-content class="border rounded-md" :editor="editor"/>
 </template>
 
 <script setup>
@@ -11,13 +11,18 @@ import Link from "@tiptap/extension-link";
 import MenuBar from "@/components/new_text_editor/MenuBar.vue";
 import BulletList from "@tiptap/extension-bullet-list";
 import Bold from "@tiptap/extension-bold";
+import TextAlign from "@tiptap/extension-text-align";
+import Highlight from "@tiptap/extension-highlight";
+import Paragraph from "@tiptap/extension-paragraph";
+import CodeBlock from "@tiptap/extension-code-block";
+
 
 const CustomBulletList = BulletList.extend({
   addCommands() {
     return {
       ...this.parent?.(),
-      toggleBulletClass: (className) => ({ commands }) => {
-        return commands.updateAttributes("bulletList", { class: className });
+      toggleBulletClass: (className) => ({commands}) => {
+        return commands.updateAttributes("bulletList", {class: className});
       },
     };
   },
@@ -37,8 +42,8 @@ const CustomTableHeader = TableHeader.extend({
           return {
             colwidth: attributes.colwidth,
             style: attributes.colwidth
-              ? `width: ${attributes.colwidth}px`
-              : null,
+                ? `width: ${attributes.colwidth}px`
+                : null,
           };
         },
       },
@@ -61,10 +66,25 @@ const editor = useEditor({
   content: '',
   extensions: [
     StarterKit,
-    CustomBulletList,
+    CustomBulletList.configure({
+      HTMLAttributes: {
+        style: 'li::marker {color: red;}'
+      }
+    }),
     CustomTableHeader,
     CustomLink,
     Bold,
+    CodeBlock.configure({
+          HTMLAttributes: {
+            class: 'border bg-zinc-700 p-2',
+          }
+        }
+    ),
+    Highlight,
+    Paragraph,
+    TextAlign.configure({
+      types: ["heading", "paragraph", "image"],
+    }),
   ],
   editorProps: {
     attributes: {
