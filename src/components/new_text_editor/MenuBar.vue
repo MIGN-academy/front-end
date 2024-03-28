@@ -1,6 +1,6 @@
 <template>
   <div class="text-xl">
-    <template v-for="(item, index) in items">
+    <template class="flex flex-row min-h-screen justify-center items-center" v-for="(item, index) in items">
       <span
           class="divider"
           v-if="item.type === 'divider'"
