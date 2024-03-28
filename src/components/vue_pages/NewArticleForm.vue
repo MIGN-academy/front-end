@@ -8,7 +8,6 @@ import {useStore} from '@nanostores/vue'
 import {$client} from '@/lib/stores.ts'
 import * as z from "zod"
 import {toTypedSchema} from '@vee-validate/zod'
-// import Editor from "@/components/text_editor/Editor.vue"
 import Editor from '@/components/new_text_editor/Editor.vue'
 
 const {handleSubmit} = useForm()
@@ -68,7 +67,7 @@ const onSubmit = handleSubmit(values => {
           </FormControl>
         </FormItem>
       </FormField>
-      <Button variant="outline" type="submit">
+      <Button class="mt-4" variant="outline" type="submit">
         Post
       </Button>
     </Form>

@@ -92,18 +92,6 @@ export default {
               this.editor.chain().focus().toggleHeading({level: 2}).run(),
         },
         {
-          icon: "h-3",
-          title: "Heading 3",
-          action: () =>
-              this.editor.chain().focus().toggleHeading({level: 3}).run(),
-        },
-        {
-          icon: "h-4",
-          title: "Heading 4",
-          action: () =>
-              this.editor.chain().focus().toggleHeading({level: 4}).run(),
-        },
-        {
           icon: "paragraph",
           title: "Paragraph",
           action: () => this.editor.chain().focus().setParagraph().run(),

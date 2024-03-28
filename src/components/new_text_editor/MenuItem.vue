@@ -1,13 +1,8 @@
 <template>
-  <button
-    class="menu-item"
-    :class="{ 'is-active bg-zinc-800 rounded-sm': isActive(editor) }"
-    @click="(e) => {
+  <button class="menu-item" :class="{ 'is-active bg-zinc-800 rounded-sm': isActive(editor) }" @click="(e) => {
       e.preventDefault();
       action();
-    }"
-    :title="title"
-  >
+    }" :title="title">
     <i :class="`ri-${icon} ri-fw`"></i>
   </button>
 </template>
@@ -34,8 +29,13 @@ export default {
     }
   },
   methods: {
-    async isActive(editor){
-      return await editor.isActive('bold')
+    isActive() {
+      const headingRegex = /^Heading ([0-9])$/
+      const headingMatch = this.title.match(headingRegex)
+      if(headingMatch) {
+        return !!this.editor && this.editor.isActive('heading', { level: Number(headingMatch[1])});
+      }
+      return !!this.editor && this.editor.isActive(this.title.toLowerCase());
     }
   }
 }

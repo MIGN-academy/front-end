@@ -15,6 +15,9 @@ import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import Paragraph from "@tiptap/extension-paragraph";
 import CodeBlock from "@tiptap/extension-code-block";
+import CustomImage from "@/components/new_text_editor/extensions/CustomImage.js";
+import "katex/dist/katex.min.css";
+import MathExtension from "@aarkue/tiptap-math-extension";
 
 
 const CustomBulletList = BulletList.extend({
@@ -85,6 +88,9 @@ const editor = useEditor({
     TextAlign.configure({
       types: ["heading", "paragraph", "image"],
     }),
+    MathExtension.configure({
+      evaluation: false
+    }),
   ],
   editorProps: {
     attributes: {
@@ -93,3 +99,11 @@ const editor = useEditor({
   }
 })
 </script>
+
+<style scoped>
+  .ProseMirror {
+    min-height: 600px;
+    max-height: 600px;
+    overflow: scroll;
+  }
+</style>
