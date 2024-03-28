@@ -43,6 +43,13 @@ export default {
       if (headingMatch) {
         return !!this.editor && this.editor.isActive('heading', { level: Number(headingMatch[1]) });
       }
+
+      const alignRegex = /^Align ([A-Za-z]+)$/
+      const alignMatch = this.title.match(alignRegex)
+      if (alignMatch) {
+        return !!this.editor && this.editor.isActive({ textAlign: alignMatch[1].toLowerCase() })
+      }
+
       return !!this.editor && this.editor.isActive(this.title.toLowerCase());
     }
   }
