@@ -38,6 +38,7 @@ export default {
   },
   methods: {
     isActive() {
+      console.log(this.title)
       const headingRegex = /^Heading ([0-9])$/
       const headingMatch = this.title.match(headingRegex)
       if (headingMatch) {
@@ -50,7 +51,18 @@ export default {
         return !!this.editor && this.editor.isActive({ textAlign: alignMatch[1].toLowerCase() })
       }
 
+      if (this.title === 'Bullet List') {
+        return !!this.editor && this.editor.isActive('bulletList')
+      }
+
+      if (this.title === 'Ordered List') {
+        return !!this.editor && this.editor.isActive('orderedList')
+      }
+
       return !!this.editor && this.editor.isActive(this.title.toLowerCase());
+    },
+    openImageWindow() {
+      console.log('opening image window')
     }
   }
 }

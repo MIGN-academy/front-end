@@ -5,6 +5,7 @@
 
 <script setup>
 import {EditorContent, useEditor} from '@tiptap/vue-3'
+import Image from '@tiptap/extension-image'
 import StarterKit from '@tiptap/starter-kit'
 import TableHeader from "@tiptap/extension-table-header";
 import Link from "@tiptap/extension-link";
@@ -16,6 +17,7 @@ import Highlight from "@tiptap/extension-highlight";
 import Paragraph from "@tiptap/extension-paragraph";
 import CodeBlock from "@tiptap/extension-code-block";
 import CustomImage from "@/components/new_text_editor/extensions/CustomImage.js";
+import Iframe from "./extensions/Iframe";
 import "katex/dist/katex.min.css";
 import MathExtension from "@aarkue/tiptap-math-extension";
 
@@ -68,12 +70,10 @@ const CustomLink = Link.extend({
 const editor = useEditor({
   content: '',
   extensions: [
+    Iframe,
+    Image,
     StarterKit,
-    CustomBulletList.configure({
-      HTMLAttributes: {
-        style: 'li::marker {color: red;}'
-      }
-    }),
+    CustomBulletList,
     CustomTableHeader,
     CustomLink,
     Bold,

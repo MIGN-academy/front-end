@@ -1,14 +1,10 @@
 <template>
   <div class="text-xl">
     <template class="flex flex-row min-h-screen justify-center items-center" v-for="(item, index) in items">
-      <span
-          class="divider"
-          v-if="item.type === 'divider'"
-          :key="`divider${index}`"
-      >
+      <span class="divider" v-if="item.type === 'divider'" :key="`divider${index}`">
         |
       </span>
-      <menu-item class="p-1" :editor="editor" v-else :key="index" v-bind="item"/>
+      <menu-item class="p-1" :editor="editor" v-else :key="index" v-bind="item" />
     </template>
   </div>
 </template>
@@ -53,7 +49,7 @@ export default {
           icon: "align-center",
           title: "Align Center",
           action: () =>
-              this.editor.chain().focus().setTextAlign("center").run(),
+            this.editor.chain().focus().setTextAlign("center").run(),
         },
         {
           icon: "align-right",
@@ -64,7 +60,7 @@ export default {
           icon: "align-justify",
           title: "Align Justify",
           action: () =>
-              this.editor.chain().focus().setTextAlign("justify").run(),
+            this.editor.chain().focus().setTextAlign("justify").run(),
         },
         {
           icon: "code-view",
@@ -83,13 +79,13 @@ export default {
           icon: "h-1",
           title: "Heading 1",
           action: () =>
-              this.editor.chain().focus().toggleHeading({level: 1}).run(),
+            this.editor.chain().focus().toggleHeading({ level: 1 }).run(),
         },
         {
           icon: "h-2",
           title: "Heading 2",
           action: () =>
-              this.editor.chain().focus().toggleHeading({level: 2}).run(),
+            this.editor.chain().focus().toggleHeading({ level: 2 }).run(),
         },
         {
           icon: "paragraph",
@@ -115,24 +111,26 @@ export default {
           type: "divider",
         },
         {
-          icon: "link",
-          title: "Link",
-          action: () => this.openLinkWindow(),
-        },
-        {
           icon: "image-line",
           title: "Image",
-          action: () => this.openImageWindow(),
-        },
-        {
-          icon: "movie-line",
-          title: "External Video",
-          action: () => this.openExternalVideoWindow(),
+          action: () => {
+            const url = window.prompt('URL')
+
+            if (url) {
+              this.editor.chain().focus().setImage({ src: url }).run()
+            }
+          }
         },
         {
           icon: "window-line",
           title: "External Iframe",
-          action: () => this.openExternalIframeWindow(),
+          action: () => {
+            const url = window.prompt('URL')
+
+            if (url) {
+              this.editor.chain().focus().setIframe({ src: url }).run()
+            }
+          }
         },
       ]
     }
